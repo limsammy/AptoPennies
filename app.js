@@ -1,6 +1,9 @@
-function moneySplitter(total) {
-  splitThree(total);
-}
+function moneySplitter(total, count) {
+  console.log(splitThree(total));
+  console.log(validate(splitThree(total), total));
+
+  validate(splitThree(total), total);
+};
 
 function splitThree(integer) {
   let results = [];
@@ -9,6 +12,21 @@ function splitThree(integer) {
   for (var i=0; i<3; i++) {
     results.push(result);
   };
-  // console.log(results);
   return results;
 };
+
+function validate(list, total) {
+  let sum = list.reduce((a, b) => a + b, 0);
+  if (sum < total) {
+    for(var i=0; i<list.length; i++) {
+      list[i] += 0.01;
+    };
+  } else if (sum > total) {
+    for(var i=0; i<list.length; i++) {
+      list[i] -= 0.01;
+    };
+  };
+  return list
+};
+
+moneySplitter(800.0);
