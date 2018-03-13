@@ -2,6 +2,8 @@ function moneySplitter(total, count) {
   console.log(splitThree(total));
   console.log(validate(splitThree(total), total));
 
+  total = total / count;
+
   validate(splitThree(total), total);
 };
 
